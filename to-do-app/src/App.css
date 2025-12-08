@@ -1,0 +1,99 @@
+/* Root light mode */
+.app.light {
+  background-color: wheat;
+  color: black;
+}
+
+/* Root dark mode */
+.app.dark {
+  background-color: #111;
+  color: wheat;
+}
+
+/* Timer styling adapts to theme */
+.timer {
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  border: 2px solid black;
+  position: relative;
+  margin-right: 90%;
+  margin-top: 0;
+}
+
+/* Adjust for dark mode */
+.app.dark .timer {
+  border-color: white;
+}
+
+/* Input fields */
+input[type="text"] {
+  font-size: 1.5rem;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 6px;
+}
+
+/* Dark mode input */
+.app.dark input[type="text"] {
+  border-color: white;
+  background-color: #333;
+  color: wheat;
+}
+
+/* Buttons */
+button {
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+/* Dark mode buttons */
+.app.dark .addButton {
+  background-color: #57a857;
+}
+.app.dark .delButton {
+  background-color: #c94d4d;
+}
+.app.dark .moveButton {
+  background-color: #a53fa5;
+}
+
+/* List items */
+li {
+  font-size: 1.7rem;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  display: flex;
+  background-color: rgb(240, 230, 205);
+}
+
+.app.dark li {
+  border-color: white;
+  background-color: #222;
+  color: wheat;
+}
+
+/* Default light theme for body */
+body.light {
+  background-color: wheat;
+  color: black;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Dark theme for body */
+body.dark {
+  background-color: #111;
+  color: wheat;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Optional: smooth transition for entire app */
+.app {
+  transition: background-color 0.5s, color 0.5s;
+}
