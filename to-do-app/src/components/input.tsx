@@ -3,10 +3,6 @@ import { useContext } from "react";
 import { LayoutContext } from "./context/LayoutContext";
 import "./styles.scss";
 
-const { style, changeStyle } = useContext(LayoutContext);
-
-console.log(style);
-
 type Task = {
   text: string;
   isFavorite: boolean;
