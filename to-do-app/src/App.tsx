@@ -1,7 +1,8 @@
 import "./App.css";
 import Input from "./components/input";
 import Timer from "./components/timer";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { TasksProvider } from "./components/context/tasksContext";
 
 function App() {
   const [style, setStyle] = useState("light");
@@ -21,7 +22,10 @@ function App() {
       </label>
 
       <Timer />
-      <Input />
+
+      <TasksProvider>
+        <Input />
+      </TasksProvider>
     </div>
   );
 }
