@@ -27,23 +27,33 @@ function Input() {
           value={newTask}
           onChange={handleChange}
         />
-        <button onClick={handleAdd}>Add</button>
+        <button className="addButton" onClick={handleAdd}>
+          Add
+        </button>
       </div>
 
       <ol>
         {tasks.map((task, index) => (
           <li key={index}>
-            <span>{task.text}</span>
+            <span className="text">{task.text}</span>
 
-            <button onClick={() => toggleFavorite(index)}>
+            <button className="favButton" onClick={() => toggleFavorite(index)}>
               {task.isFavorite ? "Unfavorite" : "Favorite"}
             </button>
 
             {!task.isFavorite && (
               <>
-                <button onClick={() => delTask(index)}>Delete</button>
-                <button onClick={() => moveUp(index)}>Up</button>
-                <button onClick={() => moveDown(index)}>Down</button>
+                <button className="delButton" onClick={() => delTask(index)}>
+                  Delete
+                </button>
+
+                <button className="moveButton" onClick={() => moveUp(index)}>
+                  Up
+                </button>
+
+                <button className="moveButton" onClick={() => moveDown(index)}>
+                  Down
+                </button>
               </>
             )}
           </li>
