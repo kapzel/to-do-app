@@ -1,18 +1,18 @@
 import React, { createContext, useContext, useState } from "react";
 
-export type Task = {
+export interface Task {
   text: string;
   isFavorite: boolean;
-};
+}
 
-type TasksContextType = {
+export interface TasksContextType {
   tasks: Task[];
-  addTask: (text: string) => void;
-  delTask: (index: number) => void;
-  moveUp: (index: number) => void;
-  moveDown: (index: number) => void;
-  toggleFavorite: (index: number) => void;
-};
+  addTask(text: string): void;
+  delTask(index: number): void;
+  moveUp(index: number): void;
+  moveDown(index: number): void;
+  toggleFavorite(index: number): void;
+}
 
 const TasksContext = createContext<TasksContextType | undefined>(undefined);
 
@@ -46,7 +46,8 @@ export function TasksProvider({ children }: { children: React.ReactNode }) {
   }
 
   function moveDown(index: number) {
-    if (index < tasks.length - 1 || tasks[index].isFavorite) return;
+    if (!tasks[index] || index >= tasks.length - 1 || tasks[index].isFavorite)
+      return;
 
     const copy = [...tasks];
     [copy[index + 1], copy[index]] = [copy[index], copy[index + 1]];
