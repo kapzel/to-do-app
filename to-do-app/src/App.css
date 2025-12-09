@@ -1,16 +1,16 @@
-/* Root light mode */
+/* main light mode */
 .app.light {
   background-color: wheat;
   color: black;
 }
 
-/* Root dark mode */
+/* main dark mode */
 .app.dark {
   background-color: #111;
   color: wheat;
 }
 
-/* Timer styling adapts to theme */
+/* style od timer */
 .timer {
   font-size: 2rem;
   font-weight: bold;
@@ -21,12 +21,12 @@
   margin-top: 0;
 }
 
-/* Adjust for dark mode */
+/* timer dark mode */
 .app.dark .timer {
   border-color: white;
 }
 
-/* Input fields */
+/* Input*/
 input[type="text"] {
   font-size: 1.5rem;
   padding: 10px;
@@ -62,7 +62,7 @@ button {
   background-color: #a53fa5;
 }
 
-/* List items */
+/* task list*/
 li {
   font-size: 1.7rem;
   padding: 10px;
@@ -79,7 +79,7 @@ li {
   color: wheat;
 }
 
-/* Default light theme for body */
+/* Defaulttheme for body */
 body.light {
   background-color: wheat;
   color: black;
@@ -93,7 +93,6 @@ body.dark {
   transition: background-color 0.5s, color 0.5s;
 }
 
-/* Optional: smooth transition for entire app */
 .app {
   transition: background-color 0.5s, color 0.5s;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useContext } from "react";
-import { LayoutContext } from "./context/LayoutContext";
 import "./styles.scss";
+import { useTasksContext } from "./context/tasksContext";
+import { useTasksContext } from ".//context/tasksContext";
 
 type Task = {
   text: string;
@@ -24,7 +24,7 @@ function Input() {
   }
 
   function delTask(index: number) {
-    if (tasks[index].isFavorite) return; // can't delete favorite
+    if (tasks[index].isFavorite) return;
     setTasks((t) => t.filter((_, i) => i !== index));
   }
 
@@ -56,17 +56,13 @@ function Input() {
     updated[index].isFavorite = !updated[index].isFavorite;
 
     if (updated[index].isFavorite) {
-      // move to top
       const favTask = updated.splice(index, 1)[0];
       updated.unshift(favTask);
     } else {
-      // remove from favorite: move to bottom of fav section
       const unfavTask = updated.splice(index, 1)[0];
 
-      // find last favorite index
       const lastFavIndex = updated.filter((t) => t.isFavorite).length;
 
-      // insert after favorites
       updated.splice(lastFavIndex, 0, unfavTask);
     }
 
@@ -95,7 +91,6 @@ function Input() {
             <span className="text">{task.text}</span>
 
             <div className="btnCont">
-              {/* Favorite toggle button */}
               <button
                 className="favButton"
                 onClick={() => toggleFavorite(index)}
@@ -106,7 +101,6 @@ function Input() {
                 {task.isFavorite ? "★ Unfavorite" : "★ Favorite"}
               </button>
 
-              {/* Hide delete/move if favorite */}
               {!task.isFavorite && (
                 <>
                   <button className="delButton" onClick={() => delTask(index)}>
