@@ -19,7 +19,7 @@ function Input() {
     setCount((c) => c + 1);
   }
   useEffect(() => {
-    document.title = `tasks: ${count}`;
+    document.title = `Tasks: ${count}`;
   }, [count]);
   return (
     <div className="list">
