@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import { useTasksContext } from "./context/tasksContext";
 
@@ -7,6 +7,7 @@ function Input() {
     useTasksContext();
 
   const [newTask, setNewTask] = useState("");
+  const [count, setCount] = useState(0);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
@@ -15,7 +16,11 @@ function Input() {
   function handleAdd() {
     addTask(newTask);
     setNewTask("");
+    setCount((c) => c + 1);
   }
+  useEffect(() => {
+    document.title = `tasks: ${count}`;
+  }, [count]);
   return (
     <div className="list">
       <h1>To-Do List</h1>
@@ -43,7 +48,13 @@ function Input() {
 
             {!task.isFavorite && (
               <>
-                <button className="delButton" onClick={() => delTask(index)}>
+                <button
+                  className="delButton"
+                  onClick={() => {
+                    setCount((c) => c - 1);
+                    delTask(index);
+                  }}
+                >
                   Delete
                 </button>
 
